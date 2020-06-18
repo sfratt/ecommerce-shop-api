@@ -1,10 +1,17 @@
 const express = require("express");
 const logger = require("morgan");
+const mongoose = require("mongoose");
 
 const productsRouter = require("./api/routes/products");
 const ordersRouter = require("./api/routes/orders");
 
 const app = express();
+mongoose.connect(`mongodb+srv://${process.env.USERNAME}:${process.env.PASSWORD}@e${process.env.CLUSTER_URL}/${process.env.DATABASE}?retryWrites=true&w=majority`,
+    {
+        useNewUrlParser: true,
+        useUnifiedTopology: true
+    }
+);
 
 app.use(logger("dev"));
 app.use(express.json());
