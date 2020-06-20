@@ -6,7 +6,7 @@ const productsRouter = require("./api/routes/products");
 const ordersRouter = require("./api/routes/orders");
 
 const app = express();
-mongoose.connect(`mongodb+srv://${process.env.USERNAME}:${process.env.PASSWORD}@e${process.env.CLUSTER_URL}/${process.env.DATABASE}?retryWrites=true&w=majority`,
+mongoose.connect(`mongodb+srv://${process.env.USERNAME}:${process.env.PASSWORD}@${process.env.URL}/${process.env.DATABASE}?retryWrites=true&w=majority`,
     {
         useNewUrlParser: true,
         useUnifiedTopology: true
