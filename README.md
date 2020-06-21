@@ -6,7 +6,7 @@
 
 ### Server Setup
 
-2. Edit the `nodemon.json` file to contain unique environment variables.
+2. Edit the `nodemon.json` file to store database connection environment variables.
 
 ### Server Start
 
