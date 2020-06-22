@@ -86,6 +86,7 @@ router.patch("/:productId", async (req, res, next) => {
         const result = await Product.updateOne({ _id: id }, props).exec();
         const response = {
             message: "Product updated",
+            product: result,
             request: {
                 type: "GET",
                 url: `${req.protocol}://${req.get("host")}/products/${id}`
@@ -104,6 +105,7 @@ router.delete("/:productId", async (req, res, next) => {
         const result = await Product.remove({ _id: id }).exec();
         const response = {
             message: "Product deleted",
+            product: result,
             request: {
                 type: "POST",
                 url: `${req.protocol}://${req.get("host")}/products`,
