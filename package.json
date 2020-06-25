@@ -13,9 +13,10 @@
     "api"
   ],
   "author": "Stephen Frattaroli",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "express": "^4.17.1",
+    "mongoose": "^5.9.19",
     "morgan": "^1.10.0"
   },
   "devDependencies": {

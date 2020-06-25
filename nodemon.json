@@ -1,0 +1,8 @@
+{
+    "env": {
+        "USERNAME": "mongodb_username",
+        "PASSWORD": "mongodb_password",
+        "SERVER": "mongodb_server",
+        "DATABASE": "mongodb_database"
+    }
+}

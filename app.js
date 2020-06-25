@@ -1,10 +1,18 @@
 const express = require("express");
+const createError = require("http-errors");
 const logger = require("morgan");
+const mongoose = require("mongoose");
 
 const productsRouter = require("./api/routes/products");
 const ordersRouter = require("./api/routes/orders");
 
 const app = express();
+mongoose.connect(`mongodb+srv://${process.env.USERNAME}:${process.env.PASSWORD}@${process.env.SERVER}/${process.env.DATABASE}?retryWrites=true&w=majority`,
+    {
+        useNewUrlParser: true,
+        useUnifiedTopology: true
+    }
+);
 
 app.use(logger("dev"));
 app.use(express.json());
@@ -28,16 +36,19 @@ app.use("/products", productsRouter);
 app.use("/orders", ordersRouter);
 
 app.use((req, res, next) => {
-    const error = new Error("Not found");
-    error.status = 404;
-    next(error);
+    // const error = new Error("Not found");
+    // error.status = 404;
+    // next(error);
+    next(createError(404));
 });
 
-app.use((error, req, res, next) => {
-    res.status(error.status || 500);
+app.use((err, req, res, next) => {
+    console.error(err);
+    // console.error(err.stack);
+    res.status(err.status || 500);
     res.json({
         error: {
-            message: error.message
+            message: err.message
         }
     });
 });
