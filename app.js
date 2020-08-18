@@ -6,7 +6,6 @@ const mongoose = require("mongoose");
 const productsRouter = require("./api/routes/products");
 const ordersRouter = require("./api/routes/orders");
 
-const app = express();
 mongoose.connect(`mongodb+srv://${process.env.USERNAME}:${process.env.PASSWORD}@${process.env.SERVER}/${process.env.DATABASE}?retryWrites=true&w=majority`,
     {
         useNewUrlParser: true,
@@ -14,7 +13,10 @@ mongoose.connect(`mongodb+srv://${process.env.USERNAME}:${process.env.PASSWORD}@
     }
 );
 
+const app = express();
+
 app.use(logger("dev"));
+app.use("/images", express.static("images"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 

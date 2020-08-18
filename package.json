@@ -4,8 +4,12 @@
   "description": "E-commerce Shop REST API",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon server.js"
+    "start": "nodemon server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sfratt/ecommerce-shop-api.git"
   },
   "keywords": [
     "node",
@@ -16,8 +20,10 @@
   "license": "MIT",
   "dependencies": {
     "express": "^4.17.1",
+    "http-errors": "^1.8.0",
     "mongoose": "^5.9.19",
-    "morgan": "^1.10.0"
+    "morgan": "^1.10.0",
+    "multer": "^1.4.2"
   },
   "devDependencies": {
     "nodemon": "^2.0.4"
